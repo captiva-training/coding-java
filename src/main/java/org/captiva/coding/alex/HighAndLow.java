@@ -1,4 +1,4 @@
-package org.captiva.coding.Alex;
+package org.captiva.coding.alex;
 
 public final class HighAndLow {
     private HighAndLow() {
