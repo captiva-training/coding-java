@@ -34,4 +34,15 @@ public class Producto {
     public int getDescuento() {
         return descuento;
     }
+
+    public int calcularSubTotal() {
+        return precio * cantidadProducto
+                - descuento;
+    }
+
+    public String imprimir() {
+        return cantidadProducto + " " + unidadMedida + " - "
+                + nombre + " , Bs " + precio + " - Bs "
+                + calcularSubTotal() + "\n";
+    }
 }

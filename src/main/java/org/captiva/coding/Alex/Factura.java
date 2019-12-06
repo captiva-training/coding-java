@@ -16,21 +16,18 @@ public class Factura {
 
     public int importeTotal() {
         int importeTotal = 0;
-        for (int i = 0; i < productoList.size(); i++) {
-            importeTotal += productoList.get(i).getPrecio() * productoList.get(i).getCantidadProducto()
-                    - productoList.get(i).getDescuento();
+        for (Producto producto : productoList) {
+            importeTotal += producto.calcularSubTotal();
         }
         return importeTotal;
     }
 
     public String imprimir() {
-        String imprimir = "";
-        for (int i = 0; i < productoList.size(); i++) {
-            imprimir += productoList.get(i).getCantidadProducto() + " " + productoList.get(i).getUnidadMedida() + " - "
-                    + productoList.get(i).getNombre() + " , Bs " + productoList.get(i).getPrecio() + " - Bs "
-                    + productoList.get(i).getPrecio() * productoList.get(i).getCantidadProducto() + "\n";
+        StringBuilder imprimir = new StringBuilder();
+        for (Producto producto : productoList) {
+            imprimir.append(producto.imprimir());
         }
-        imprimir += "Total - Bs " + importeTotal();
-        return imprimir;
+        imprimir.append("Total - Bs ").append(importeTotal());
+        return imprimir.toString();
     }
 }
